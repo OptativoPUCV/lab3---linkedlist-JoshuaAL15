@@ -38,6 +38,9 @@ List * createList() {
 }
 
 void * firstList(List * list) {
+    if (list->head == NULL) return NULL; // Verifica si la lista está vacía
+    list->current = list->head; // Actualiza current al primer nodo
+    return list->current->data; // Retorna el dato del primer nodo
     return NULL;
 }
 
