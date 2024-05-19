@@ -38,14 +38,15 @@ List * createList() {
 }
 
 void * firstList(List * list) {
-    if (list->head == NULL) return NULL; // Verifica si la lista está vacía
-    list->current = list->head; // Actualiza current al primer nodo
-    return list->current->data; // Retorna el dato del primer nodo
-    return NULL;
+    if (list->head == NULL) return NULL; 
+    list->current = list->head; 
+    return list->current->data; 
 }
 
 void * nextList(List * list) {
-    return NULL;
+    if (list->current == NULL || list->current->next == NULL) return NULL;
+    list->current = list->current->next; 
+    return list->current->data;
 }
 
 void * lastList(List * list) {
