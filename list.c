@@ -50,11 +50,15 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
-    return NULL;
+    if (list->tail == NULL) return NULL; // Verifica si la lista está vacía
+    list->current = list->tail; // Actualiza current al último nodo
+    return list->current->data; // Retorna el dato del último nodo
 }
 
 void * prevList(List * list) {
-    return NULL;
+    if (list->current == NULL || list->current->prev == NULL) return NULL; // Verifica si current es NULL o si es el primer nodo
+    list->current = list->current->prev; // Actualiza current al nodo anterior
+    return list->current->data; // Retorna el dato del nodo anterior
 }
 
 void pushFront(List * list, void * data) {
